@@ -18,6 +18,8 @@
         <h1>Behavior Change</h1>
     </div>
 
+<div  class = 'moveGUI'>
+</div>
 
     <div style="margin-top: 2vh;">
         <div style="height:65vh;width:80vw;margin-left: 10vw;margin-right: 10vw; background: whitesmoke;">
@@ -48,11 +50,16 @@
     .folder .dg ul {
         margin-top: 0 !important;
     }
+	.moveGUI{ 
+    	position: absolute;
+    	top: 13.1em;
+    	right: -1em;
+	}
 </style>
 
 <script>
-    var gui = new dat.GUI({ load: getPresetJSON(), preset: 'Preset1' });
-
+    var gui = new dat.GUI({ load: getPresetJSON(), preset: 'Preset1', autoplace: false });
+	gui.domElement.id = 'gui';
     var object1 = {
         type1_boolean: false,
         type2_string: 'string',
@@ -143,5 +150,5 @@
             }
         };
     }
-
+	var customContainer = $('.moveGUI').append($(gui.domElement));
 </script>
