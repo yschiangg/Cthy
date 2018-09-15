@@ -18,8 +18,7 @@
         <h1>Behavior Change</h1>
     </div>
 
-	<div  class = 'moveGUI'>
-	</div>
+	<div  class = 'moveGUI'></div>
 
     <div style="margin-top: 2vh;">
         <div style="height:65vh;width:80vw;margin-left: 10vw;margin-right: 10vw; background: whitesmoke;">
@@ -52,14 +51,13 @@
     }
 	.moveGUI{ 
     	position: absolute;
-    	top: 200.0em;
+    	top: 20.0em;
     	right: -1em;
 	}
 </style>
 
 <script>
     var gui = new dat.GUI({ load: getPresetJSON(), preset: 'Preset1', autoplace: false });
-	gui.domElement.id = 'gui';
     var object1 = {
         type1_boolean: false,
         type2_string: 'string',
