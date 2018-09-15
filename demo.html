@@ -1,0 +1,147 @@
+<head>
+    <title>Cathay Visualization | Demo</title>
+    <script src='http://d3js.org/d3.v3.min.js' charset="utf-8"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="http://semantic-ui.com/javascript/library/tablesort.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js"></script>
+    <link rel="stylesheet" href="static/css/main.css">
+    <link rel="stylesheet" href="css/inverted.css">
+</head>
+
+
+<body style="overflow: hidden;">
+    <div style="width:80vw;margin-left: 10vw;margin-right: 10vw; margin-top: 2vh;">
+        <h1>Behavior Change</h1>
+    </div>
+
+
+    <div style="margin-top: 2vh;">
+        <div style="height:65vh;width:80vw;margin-left: 10vw;margin-right: 10vw; background: whitesmoke;">
+            Insert Scatter Plotly here
+        </div>
+
+        <div class="ui stackable  equal height stackable grid" style="height:15vh;width:80vw;margin-top:2vh; margin-left: 10vw;margin-right: 10vw; background: whitesmoke;">
+            <div class="three wide column">
+                <h4>User ID:10000078</h4>
+                <p>Female 45yr<br>
+                Credit Card User
+                </p>
+            </div>
+            <div class="three wide column">
+                <p>insert pie chart</p>
+            </div>
+            <div class="seven wide column">
+                <h4>Action Sequence</h4>
+                <p>AFKKKKKJIDPSJJJ</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+<style>
+    .folder .dg ul {
+        margin-top: 0 !important;
+    }
+</style>
+
+<script>
+    var gui = new dat.GUI({ load: getPresetJSON(), preset: 'Preset1' });
+
+    var object1 = {
+        type1_boolean: false,
+        type2_string: 'string',
+        type3_number: 0,
+        type4_function: function () {
+            alert('This is a function.');
+        }
+    };
+
+    var object2 = {
+        string1: 'string1',
+        string2: 'string2'
+    };
+
+    var object3 = {
+        color0: "#ffae23", // CSS string
+        color1: [0, 128, 255], // RGB array
+        color2: [0, 128, 255, 0.3], // RGB with alpha
+        color3: { h: 350, s: 0.9, v: 0.3 } // Hue, saturation, value
+    };
+    // dat.GUI will modify colors in the format defined by their initial value.
+
+    // saveValues: gui.remember must be executed before gui.add
+    gui.remember(object1);
+
+    // setController: boolean, string, number, function
+    gui.add(object1, 'type1_boolean');
+
+
+
+    var folder2 = gui.addFolder('FolderNameB');
+    folder2.add(object2, 'string1', {
+        'key1': 'string_1',
+        'key2': 'string_2',
+        'key3': 'string_3'
+    });
+    folder2.add(object2, 'string2', [
+        'string_1', 'string_2', 'string_3'
+    ]);
+
+
+
+    // presetJSON: created from pressing the gear.
+    function getPresetJSON() {
+        return {
+            "preset": "Default",
+            "closed": false,
+            "remembered": {
+                "Default": {
+                    "0": {
+                        "type1_boolean": false,
+                        "type2_string": "string",
+                        "type3_number": 0
+                    },
+                    "1": {
+                        "string1": "string1",
+                        "string2": "string2"
+                    }
+                },
+                "Preset1": {
+                    "0": {
+                        "type1_boolean": true,
+                        "type2_string": "string123",
+                        "type3_number": -2.2938689217758985
+                    },
+                    "1": {
+                        "string1": "string_2",
+                        "string2": "string_3"
+                    }
+                }
+            },
+            "folders": {
+                "FolderNameA": {
+                    "preset": "Default",
+                    "closed": false,
+                    "folders": {}
+                },
+                "FolderNameB": {
+                    "preset": "Default",
+                    "closed": false,
+                    "folders": {}
+                },
+                "FolderNameC": {
+                    "preset": "Default",
+                    "closed": false,
+                    "folders": {}
+                }
+            }
+        };
+    }
+
+</script>
